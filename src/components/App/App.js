@@ -13,10 +13,11 @@ if (localStorage.getItem("fontSize") == null){
 let backGroundColour = "#edf8ff";
 let colour = "black";
 
+
 if (localStorage.getItem("darkMode") == "#000000"){
   console.log("darkModeActive");
   backGroundColour = "#c1ecf0";
-  colour = "#7a7a7a";
+  colour = "#ffffff";
 }
 
 

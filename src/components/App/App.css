@@ -183,6 +183,7 @@ navbar.NavBar1{
   font-size: 13px;
   width: 98vw;
   border-radius: 20px;
+  color: black;
   
   }
 
@@ -211,6 +212,7 @@ navbar.NavBar1{
   width: 50%;
   display: flex;
   text-align: center;
+  color: black;
   
 }
 
@@ -230,36 +232,46 @@ div.gm-style {
   text-align: left;
   background-color: #ffe9e9;
   border-radius: 20px;
+  color: black;
+
 }
 
 .divRailInput{
   text-align: left;
   background-color: #c1ecf0;
   border-radius: 20px;
+  color: black;
 }
 
 .divBusInput{
   text-align: left;
   background-color: #f5dee9;
   border-radius: 20px;
+  color: black;
+
 }
 
 .divFlightInput{
   text-align: left;
   background-color: #ddf0e8;
   border-radius: 20px;
+  color: black;
+
 }
 
 .manualInput{
   text-align: left;
   background-color: #ffe9f2;
   border-radius: 20px;
+  color: black;
 }
 
 .optionInput{
   text-align: center;
   background-color: #e2ddff;
   border-radius: 20px;
+  color: black;
+
 }
 
 
@@ -293,6 +305,10 @@ a.btn-animation.active{
 
 a.active-animation:active{
   background: #e6e6e6;
+}
+
+.rct-xy-plot * {
+  fill: #028499
 }
 
 

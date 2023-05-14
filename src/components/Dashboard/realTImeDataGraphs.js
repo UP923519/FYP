@@ -3,6 +3,7 @@ import XAxis from 'reactochart/XAxis';
 import XAxisTitle from 'reactochart/XAxisTitle';
 import YAxis from 'reactochart/YAxis';
 import YAxisTitle from 'reactochart/YAxisTitle';
+import YAxisLabels from 'reactochart/YAxisTitle';
 
 import LineChart from 'reactochart/LineChart';
 import BarChart from 'reactochart/BarChart';
@@ -25,15 +26,14 @@ export const TrendBarChart = props => (
       <XAxis/>
       <YAxis/>
       <BarChart
-        barStyle={{fill: "#9c5d76"}}
+        barStyle={{fill: "#4e6682"}}
           data={graphArray}
           x={d => d.Transaction}
           y={d => d.Amount}
           barThickness={40}
-
       />
-          <XAxisTitle  title="Time period" style={{fontSize:"14px"}} distance={25}/>
-          <YAxisTitle  title="Carbon (CO2e)" style={{fontSize:"14px"}} distance={35} />
+          <XAxisTitle  title="Time period" style={{fontSize:"14px", fill:"028499"}} distance={25} />
+          <YAxisTitle  title="Carbon (CO2e)" style={{fontSize:"14px", fill:"#028499"}} distance={35} />
 
       
     </XYPlot>
