@@ -216,7 +216,7 @@ navbar.NavBar1{
 }
 
 #highlights2{
-  background: #0e57475c;
+  background: #6bab9d;
   border-radius: 20px;
   padding: 10px;
   margin-right: 8px;
@@ -423,6 +423,19 @@ a.active-animation:active{
     margin-left: 25vw;
     margin-right: 25vw;
   
+  }
+
+  .topRow2 {
+    margin: 25px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 9px;
+    padding-bottom: 11px;
+    padding-top: 12px;
+    padding-left: 6.5px;
+    padding-right: 6.5px;
+    text-decoration: inherit;
+    color: rgb(102, 102, 102);
   }
 
 }
