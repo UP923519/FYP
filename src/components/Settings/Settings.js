@@ -26,8 +26,11 @@ if (localStorage.getItem("darkMode") == null){
 if (localStorage.getItem("darkMode") == "#ffffff"){
     currentTheme = "Light theme"
 } 
-if (localStorage.getItem("darkMode") == "#a6a6a6"){
+if (localStorage.getItem("darkMode") == "#000000"){
     currentTheme = "Dark theme"
+} 
+if (localStorage.getItem("darkMode") == "#c7dcff"){
+    currentTheme = "Colourful theme"
 } 
 
 export default function Settings(){
@@ -57,12 +60,17 @@ export default function Settings(){
 
 
     function darkMode(){
-        localStorage.setItem("darkMode", "#a6a6a6");
+        localStorage.setItem("darkMode", "#000000");
 
     }
 
     function lightMode(){
         localStorage.setItem("darkMode", "#ffffff");
+
+    }
+
+    function ColourfulMode(){
+        localStorage.setItem("darkMode", "#c7dcff");
 
     }
 
@@ -72,12 +80,18 @@ export default function Settings(){
             <div className = "optionInput">
                 <h3>Display Settings</h3>
                 <div> Current theme: {currentTheme}<br/>
-                    <button id = "useCurrentLocation" onClick={darkMode}>
-                        Dark mode
-                    </button>
-                    <button id = "useCurrentLocation" onClick={lightMode}>
-                        Light mode
-                    </button>
+                    <a href="/FYP">
+
+                        <button id = "useCurrentLocation" onClick={darkMode}>
+                            Dark mode
+                        </button>
+                        <button id = "useCurrentLocation" onClick={lightMode}>
+                            Light mode
+                        </button><br/>
+                        <button id = "useCurrentLocation" onClick={ColourfulMode}>
+                            Colourful mode
+                        </button>
+                    </a>
                 </div>
                 <br/>
                 <div> Current font size: {currentFontSize}<br/>
@@ -92,15 +106,15 @@ export default function Settings(){
                     </button><br/>
         
                 </div>
-                <br/>
-                <a href="/FYP">
-                <button style = {{textDecoration: "none"}}id = "manualSubmitButton">
-                    ☑ Apply
-                </button>
-                </a>
                 <p style = {{fontSize: Number(localStorage.getItem("fontSize"))}}>
                     Example text to test font size
-                </p><br/>
+                </p>
+                <a href="/FYP">
+                <button style = {{textDecoration: "none",fontSize: Number(localStorage.getItem("fontSize")-3)}}id = "manualSubmitButton">
+                    ☑ Apply font size
+                </button>
+                </a>
+                <br/><br/>
             </div>
         </div>
     )

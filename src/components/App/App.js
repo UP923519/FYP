@@ -11,11 +11,12 @@ if (localStorage.getItem("fontSize") == null){
 }
 
 let backGroundColour = "#edf8ff";
+let colour = "black";
 
-
-if (localStorage.getItem("darkMode") == "#a6a6a6"){
+if (localStorage.getItem("darkMode") == "#000000"){
   console.log("darkModeActive");
   backGroundColour = "#c1ecf0";
+  colour = "#7a7a7a";
 }
 
 
@@ -39,7 +40,7 @@ function App() {
   }
 
   return (   
-    <div className="wrapper" style = {{fontSize: Number(localStorage.getItem("fontSize")), backgroundColor: localStorage.getItem("darkMode")}}>
+    <div className="wrapper" style = {{fontSize: Number(localStorage.getItem("fontSize")), backgroundColor: localStorage.getItem("darkMode"), color: colour}}>
       <h1 className = "titleClass" style = {{color: "#2d9ba1", backgroundColor:backGroundColour, borderRadius:"20px"}} >Carbon Tracker</h1>
       <div className = "topBanner1">
         <h4> Welcome, {localStorage.getItem('username')}
