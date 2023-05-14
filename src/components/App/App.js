@@ -25,8 +25,6 @@ if (localStorage.getItem("darkMode") == "#a6a6a6"){
 </style>
 
 
-
-
 function App() {
   const { token, setToken, removeToken, getToken} = useToken();
   const greeting = "greeting";
