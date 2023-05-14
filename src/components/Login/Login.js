@@ -25,7 +25,6 @@ async function getPassWord(username){
         let data = childSnapshot.val();
         records.push({"date": keyName, "data":data})
         console.log("datais", data)
-   
     });
   });
   return records;

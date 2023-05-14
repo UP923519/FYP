@@ -16,14 +16,15 @@ export let graphArray = [];
 
 export let tmode = "";
 export let tmodeTip = "";
+let tmodeTip2 = "";
 
 
 export class RealTimeDataTotals extends React.Component{
     constructor(){
         super();
         this.state = {
-            tableData: []
-
+            tableData: [],
+            tmodeTip2: "loading..."
         }
     }
 
@@ -152,20 +153,19 @@ export class RealTimeDataTotals extends React.Component{
 
             this.setState({tableData: records});
 
-            //console.log("records iss", records);
-
             if (tmodeT > tmodeC && tmodeT > tmodeB){
-                tmode = "Train travel is your preferred method to get around"
-                tmodeTip = "Try switching to cycling or walking where possible"
+                tmode = "Train travel is your preferred transport mode! You're making a positive impact on the environment."
+                tmodeTip = "When you don't need to travel by train, consider cycling or walking to reduce your carbon footprint further."
             } else if (tmodeC > tmodeT && tmodeC > tmodeB){
-                tmode = "Car travel is your preferred method to get around"
-                tmodeTip = "Try taking the train more often to reduce your carbon emissions"
+                tmode = "Car travel is your preferred transport mode."
+                tmodeTip = "Only travel by car if you really need to. How about learning to drive more efficiently? https://rb.gy/r8p6u"
             } else if (tmodeB > tmodeT && tmodeB > tmodeC){
-                tmode = "Bus travel is your preferred method to get around"
-                tmodeTip = "Are you able to cycle or walk more often to reduce your footprint even further?"
+                tmode = "Bus travel is your preferred method of transport! This is a great way to save emissions compared to travelling by car."
+                tmodeTip = "For shorter journeys, are you able to cycle or walk more often to reduce your footprint further?"
             } else if (tmodeT == tmodeC && tmodeT == tmodeB){
-                tmode = "You take the same amount of car journeys as train and bus journeys"
-                tmodeTip = "Try to reduce your car journeys and take the train more often instead"
+                tmode = "You take the same amount of car journeys as train and bus journeys!"
+                tmodeTip = "Try to reduce your car journeys and take the train and bus more often instead. "+
+                "When you do need to drive, how about driving in a more environmentally friendly way? https://rb.gy/r8p6u"
             } if (tmodeT == 0 && tmodeC == 0 && tmodeB == 0){
                 tmode = "Start adding journeys to recieve highlights"
                 tmodeTip = "Recommendations will appear once you have added a journey"
@@ -176,6 +176,24 @@ export class RealTimeDataTotals extends React.Component{
 
             //console.log("recordsTotal iss", (recordsTotal));
             //console.log("recordsTotalMonth iss", (recordsTotalMonth));
+        });
+
+
+        const dbrefT = query(ref(db, "tips"));
+        let DBTips = [];
+        onValue(dbrefT, (snapshot)=>{
+          snapshot.forEach(childSnapshot => {
+              let keyName = childSnapshot.key;
+              let data = childSnapshot.val();
+              DBTips.push({"date": keyName, "data":data})
+              
+          });
+          let tipNo = Math.floor(Math.random() * DBTips.length);
+          console.log(tipNo);
+          tmodeTip2 = DBTips[tipNo].data;
+          this.setState({tmodeTip2: DBTips[tipNo].data});
+
+          console.log(DBTips[1].data);
         });
     }
 
@@ -209,16 +227,18 @@ export class RealTimeDataTotals extends React.Component{
                 <TrendBarChart/>
                 <div className='Wrapper2'>
                     {/*<Table data = {rows}></Table>*/}
-                    <h4>Your highlights </h4>
+                    <h4>Your highlights</h4>
                     <ul className = "highlights2">
                         <li className = "highlights">{tmode}</li>
                         <li className = "highlights">{tmodeTip}</li>
-                        {/*<li className = "highlights">Your carbon usage has reduced 12% since the previous month</li>*/}
                     </ul>
                 </div>
+                <h4>Today's top tip</h4>
+                <p id = "highlights2">{this.state.tmodeTip2}</p>
+
                 <a href="/FYP">
                     <button style={{marginLeft:"0"}} id = "useCurrentLocation">
-                        ↻ Refresh 
+                        ↻ Refresh Page
                     </button> 
                 </a>
                
