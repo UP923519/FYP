@@ -61,6 +61,7 @@ export class InputLocation extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({trD: ""});
     this.setState({showHideLD: !this.state.showHideRail});
     originStation = this.state.value;
     let date = this.state.date;
@@ -85,7 +86,7 @@ export class InputLocation extends React.Component {
         }
       }
       .bind(this),
-      7000
+      11500
     );
 
     setTimeout(
@@ -95,6 +96,8 @@ export class InputLocation extends React.Component {
       .bind(this),
       20000
     );
+
+    this.setState({value: event.target.value, trD: trD});
 
 
   }
@@ -119,7 +122,8 @@ export class InputLocation extends React.Component {
             {showHideErr && "⚠️ Please try again later" }
             <p style={{fontWeight: "bold"}}>
             &nbsp;Destinations on this route:</p> <p style={{maxWidth: "400px", paddingLeft: "4px"}}>{/*trD*/}{this.state.trD}</p>
-            {<p style={{fontWeight: "bold"}}> &nbsp;Select your journey:</p> && trcDropDown}
+            <p style={{fontWeight: "bold"}}> &nbsp;Select your journey:</p>
+            {trcDropDown}
             <br/>
           </form>
         </div>
