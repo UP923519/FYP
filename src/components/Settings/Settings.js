@@ -14,23 +14,23 @@ if (localStorage.getItem("fontSize") == 16){
     currentFontSize = "Standard font size"
 } 
 if (localStorage.getItem("fontSize") == 18){
-    currentFontSize = "Increased font size"
+    currentFontSize = "Large font size"
 } 
 if (localStorage.getItem("fontSize") == 11){
-    currentFontSize = "Decreased font size"
+    currentFontSize = "Small font size"
 } 
 
 if (localStorage.getItem("darkMode") == null){
-    currentTheme = "Light theme"
+    currentTheme = "Light"
 } 
 if (localStorage.getItem("darkMode") == "#ffffff"){
-    currentTheme = "Light theme"
+    currentTheme = "Light"
 } 
 if (localStorage.getItem("darkMode") == "#000000"){
-    currentTheme = "Dark theme"
+    currentTheme = "Dark"
 } 
 if (localStorage.getItem("darkMode") == "#c7dcff"){
-    currentTheme = "Colourful theme"
+    currentTheme = "Colourful"
 } 
 
 export default function Settings(){
@@ -96,10 +96,10 @@ export default function Settings(){
                 <br/>
                 <div> Current font size: {currentFontSize}<br/>
                     <button id = "useCurrentLocation" onClick={fontSizeIncrease}>
-                        + Increased font size
+                        + Large font size
                     </button>
                     <button id = "useCurrentLocation" onClick={fontSizeDecrease}>
-                        - Decreased font size
+                        - Small font size
                     </button><br/> 
                     <button id = "useCurrentLocation" onClick={fontSizeReset}>
                         Standard font size

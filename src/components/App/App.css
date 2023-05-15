@@ -322,6 +322,13 @@ a.active-animation:active{
   fill: #028499
 }
 
+#puff1 {
+  position: relative;
+  top: 15px;
+  margin-top: -50px;
+
+}
+
 
 @media (orientation: landscape){
   .manualInput{

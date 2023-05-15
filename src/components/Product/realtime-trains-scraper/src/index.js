@@ -10,7 +10,7 @@ async function getCallingPoints(url) {
     let callingPoints = [];
     let html = await fetch(CORS_ANYWHERE+url, {
         headers: {
-        'x-cors-api-key': 'temp_50e0f4a59ec89cd885155ad474cbb031',
+        'x-cors-api-key': 'temp_e2fa329b2aa072cc182a7fa758ddab3b',
         'mode': 'no-cors'
         }
       }
@@ -79,7 +79,7 @@ export async function getTrains(station, resultCount) {
     //getting the html from Realtime Trains
     const html = await fetch(CORS_ANYWHERE+`https://www.realtimetrains.co.uk/search/detailed/gb-nr:${stationCode}`, {
         headers: {
-        'x-cors-api-key': 'temp_50e0f4a59ec89cd885155ad474cbb031',
+        'x-cors-api-key': 'temp_e2fa329b2aa072cc182a7fa758ddab3b',
         'mode': 'no-cors'
         }
         }
