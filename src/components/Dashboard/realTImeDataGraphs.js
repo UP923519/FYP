@@ -32,7 +32,7 @@ export const TrendBarChart = props => (
           y={d => d.Amount}
           barThickness={40}
       />
-          <XAxisTitle  title="Time period" style={{fontSize:"14px", fill:"028499"}} distance={25} />
+          <XAxisTitle  title="Time period (weekly - starting from date)" style={{fontSize:"14px", fill:"028499"}} distance={25} />
           <YAxisTitle  title="Carbon (CO2e)" style={{fontSize:"14px", fill:"#028499"}} distance={35} />
 
       

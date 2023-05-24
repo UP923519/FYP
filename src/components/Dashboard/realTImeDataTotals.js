@@ -14,9 +14,40 @@ let recordsTotalMonth = 0;
 let recordsL = [];
 export let graphArray = [];
 
-export let tmode = "";
-export let tmodeTip = "";
+export let tmode = "loading...";
+export let tmodeTip = "loading...";
 let tmodeTip2 = "";
+
+            //DatePreviousMonth
+            var date = new Date();
+            date.setDate(date.getDate() - 30); 
+            var dateString = date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2);
+            var displayDateString = ("0" + date.getDate()).slice(-2) + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
+            //DatePreviousWeek
+            var dateW = new Date();
+            dateW.setDate(dateW.getDate() - 7); 
+            var dateStringW = dateW.getFullYear() + '-' + ("0" + (dateW.getMonth() + 1)).slice(-2) + '-' + ("0" + dateW.getDate()).slice(-2);
+            var displayDateStringW = ("0" + dateW.getDate()).slice(-2) + '-' + ("0" + (dateW.getMonth() + 1)).slice(-2) + '-' + dateW.getFullYear();
+
+            //DatePreviousYear
+            var dateY = new Date();
+            dateY.setDate(dateY.getDate() - 365); 
+            var dateStringY = dateY.getFullYear() + '-' + ("0" + (dateY.getMonth() + 1)).slice(-2) + '-' + ("0" + dateY.getDate()).slice(-2);
+            
+            //DateWeeBeforeLast
+            var dateL2W = new Date();
+            dateL2W.setDate(dateL2W.getDate() - 14); 
+            var dateStringL2W = dateL2W.getFullYear() + '-' + ("0" + (dateL2W.getMonth() + 1)).slice(-2) + '-' + ("0" + dateL2W.getDate()).slice(-2);
+            var displayDateStringL2W = ("0" + dateL2W.getDate()).slice(-2) + '-' + ("0" + (dateL2W.getMonth() + 1)).slice(-2) + '-' + dateL2W.getFullYear();
+
+
+            //Date3WeeksAgo
+            var dateL3W = new Date();
+            dateL3W.setDate(dateL3W.getDate() - 21); 
+            var dateStringL3W = dateL3W.getFullYear() + '-' + ("0" + (dateL3W.getMonth() + 1)).slice(-2) + '-' + ("0" + dateL3W.getDate()).slice(-2);
+            var displayDateStringL3W = ("0" + dateL3W.getDate()).slice(-2) + '-' + ("0" + (dateL3W.getMonth() + 1)).slice(-2) + '-' + dateL3W.getFullYear();
+
 
 
 export class RealTimeDataTotals extends React.Component{
@@ -44,27 +75,6 @@ export class RealTimeDataTotals extends React.Component{
             let recordsTotalL3W = 0;
             let recordsTotalL4W = 0;
 
-
-            //DatePreviousMonth
-            var date = new Date();
-            date.setDate(date.getDate() - 30); 
-            var dateString = date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2);
-            //DatePreviousWeek
-            var dateW = new Date();
-            dateW.setDate(dateW.getDate() - 7); 
-            var dateStringW = dateW.getFullYear() + '-' + ("0" + (dateW.getMonth() + 1)).slice(-2) + '-' + ("0" + dateW.getDate()).slice(-2);
-            //DatePreviousYear
-            var dateY = new Date();
-            dateY.setDate(dateY.getDate() - 365); 
-            var dateStringY = dateY.getFullYear() + '-' + ("0" + (dateY.getMonth() + 1)).slice(-2) + '-' + ("0" + dateY.getDate()).slice(-2);
-            //DateWeeBeforeLast
-            var dateL2W = new Date();
-            dateL2W.setDate(dateL2W.getDate() - 14); 
-            var dateStringL2W = dateL2W.getFullYear() + '-' + ("0" + (dateL2W.getMonth() + 1)).slice(-2) + '-' + ("0" + dateL2W.getDate()).slice(-2);
-            //Date3WeeksAgo
-            var dateL3W = new Date();
-            dateL3W.setDate(dateL3W.getDate() - 21); 
-            var dateStringL3W = dateL3W.getFullYear() + '-' + ("0" + (dateL3W.getMonth() + 1)).slice(-2) + '-' + ("0" + dateL3W.getDate()).slice(-2);
             
 
             snapshot.forEach(childSnapshot => {
@@ -106,23 +116,23 @@ export class RealTimeDataTotals extends React.Component{
                     //console.log("newer than last month");
                 }
 
-                if (date1 > dateStringW){
+                if (date1 >= dateStringW){
                     //console.log("The following date", date1, "should be bigger than", dateStringW, "Last week");
                     recordsTotalWeek = recordsTotalWeek + Number(records[i].data.Amount);
                     //console.log("newer than last week");
                 }
 
-                if (date1 > dateStringY){
+                if (date1 >= dateStringY){
                     recordsTotalYear = recordsTotalYear + Number(records[i].data.Amount);
                     //console.log("newer than last year");
                 }
 
-                if (date1 > dateStringL2W && date1 < dateStringW){
+                if (date1 >= dateStringL2W && date1 < dateStringW){
                     //console.log("The following date", date1, "should be less than", dateStringW, "and bigger than", dateStringL2W, "last 2 week");
                     recordsTotalL2W = recordsTotalL2W + Number(records[i].data.Amount);
                 }
 
-                if (date1 > dateStringL3W && date1 < dateStringL2W){
+                if (date1 >= dateStringL3W && date1 < dateStringL2W){
                     //console.log("The following date", date1, "should be less than", dateStringL2W, "and bigger than", dateStringL3W, "last 3 week");
                     recordsTotalL3W = recordsTotalL3W + Number(records[i].data.Amount);
                 }
@@ -139,10 +149,10 @@ export class RealTimeDataTotals extends React.Component{
             records = [];
 
             records.push({date: 'n/a', data: {Amount: recordsTotalWeek, Transaction: 'This Week', date: 'N/A'}});
-            graphArray.push({Amount: recordsTotalWeek, Transaction: 'Last week'});
-            graphArray.push({Amount: recordsTotalL2W, Transaction: '2 weeks'});
-            graphArray.push({Amount: recordsTotalL3W, Transaction: '3 Weeks'});
-            graphArray.push({Amount: recordsTotalL4W, Transaction: '1 month'});
+            graphArray.push({Amount: recordsTotalWeek, Transaction: displayDateStringW});
+            graphArray.push({Amount: recordsTotalL2W, Transaction: displayDateStringL2W});
+            graphArray.push({Amount: recordsTotalL3W, Transaction: displayDateStringL3W});
+            graphArray.push({Amount: recordsTotalL4W, Transaction: displayDateString});
 
             records.push({date: 'n/a', data: {Amount: recordsTotalMonth, Transaction: 'This Month', date: 'N/A'}});
             records.push({date: 'n/a', data: {Amount: recordsTotalYear, Transaction: 'Past Year', date: 'N/A'}});

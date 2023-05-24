@@ -68,6 +68,8 @@ export default function Login({setToken}) {
   useEffect(() => {
   });
   localStorage.setItem('username',username);
+
+    
   const dbref = query(ref(db, username+"Login"));
   onValue(dbref, (snapshot)=>{
     snapshot.forEach(childSnapshot => {
