@@ -235,22 +235,20 @@ export class RealTimeDataTotals extends React.Component{
                     </tbody>
                 </Table>
                 <TrendBarChart/>
-                <div className='Wrapper2'>
-                    {/*<Table data = {rows}></Table>*/}
+                <div className='highlightsP'>
                     <h4>Your highlights</h4>
-                    <ul className = "highlights2">
-                        <li className = "highlights">{tmode}</li>
-                        <li className = "highlights">{tmodeTip}</li>
-                    </ul>
+                    <div className = "highlights">{tmode}</div>
+                    <div className = "highlights">{tmodeTip}</div>
                 </div>
                 <h4>Today's top tip</h4>
                 <p id = "highlights2">{this.state.tmodeTip2}</p>
-
+                <br/>
                 <a href="/FYP">
                     <button style={{marginLeft:"0"}} id = "useCurrentLocation">
                         ↻ Refresh Page
                     </button> 
                 </a>
+                
                
             </div>
 

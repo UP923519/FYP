@@ -121,7 +121,7 @@ export class InputLocation extends React.Component {
             {showHideLD && <Puff id = "puff1" stroke="#000000"/> }
             {showHideErr && "⚠️ Please try again later" }
             <p style={{fontWeight: "bold"}}>
-            &nbsp;Destinations on this route:</p> <p style={{maxWidth: "400px", paddingLeft: "4px"}}>{/*trD*/}{this.state.trD}</p>
+            &nbsp;Destinations on this route:</p> <p style={{paddingLeft: "4px", textAlign: "center"}}>{/*trD*/}{this.state.trD}</p>
             <p style={{fontWeight: "bold"}}> &nbsp;Select your journey:</p>
             {trcDropDown}
             <br/>

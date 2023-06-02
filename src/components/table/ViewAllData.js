@@ -33,15 +33,11 @@ export class ViewAllData extends Component {
     return (
       <div>
           {showHideFName && (
-            <tr>
-              <td><RealTimeData/></td>
-            </tr>
+              <RealTimeData/>
           )}
           {showHideLName && (
-            <tr>
-              <td><RealTimeDataAll/></td>
+              <RealTimeDataAll/>
 
-            </tr>
           )}
           {showHideFName && showHideLName && (
             <tr>

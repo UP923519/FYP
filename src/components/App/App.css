@@ -177,6 +177,7 @@ navbar.NavBar1{
 }
 
 .transactions {
+  display: inline-table;
   text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -184,7 +185,6 @@ navbar.NavBar1{
   width: 98vw;
   border-radius: 20px;
   color: black;
-  
   }
 
 .transactions td{
@@ -200,29 +200,30 @@ navbar.NavBar1{
 }
 
 .TableRow{
-  text-align: left;
+  text-align: center;
+}
+
+.highlightsp{
+  text-align: center;
+  display: table;
 }
 
 .highlights{
+  display: table-cell;
+  vertical-align: top;
   background: #abccf0;
   border-radius: 20px;
   padding: 10px;
-  margin-right: 8px;
-  margin-left: 8px;
-  width: 50%;
-  display: flex;
   text-align: center;
   color: black;
 }
 
 #highlights2{
   background: #6bab9d;
+  display: table-cell;
+  vertical-align: top;
   border-radius: 20px;
   padding: 10px;
-  margin-right: 8px;
-  margin-left: 8px;
-
-  display: flex;
   text-align: center;
   color: black;
 }
@@ -339,6 +340,22 @@ a.active-animation:active{
     width: 50vw;
   }
 
+  .transactions {
+    display: inline-table;
+    width: 50vw;
+  }
+
+  .highlights{
+    width:50%; 
+  }
+
+  #highlights2{
+    display:inline-block;
+    width: 50vw;
+    text-align: center;
+  }
+
+
   .divRailInput{
     display:inline-block;
     text-align: center;
@@ -426,9 +443,11 @@ a.active-animation:active{
 
   .titleClass{
     text-align: center;
+    display: inline;
     border-radius: 20px;
-    margin-left: 25vw;
-    margin-right: 25vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+
   
   }
 
