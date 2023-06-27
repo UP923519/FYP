@@ -30,7 +30,7 @@ const Row = (props) => {
 
 const Table = (props) => {
   const {data} = props
-  //console.log(data)
+  ////console.log(data)
   return(
   <div className="wrapper">
   <table className='transactions'>
@@ -50,7 +50,7 @@ const Table = (props) => {
 
 function onChange(){
     let obj = Object.assign(cities, {name:"Solar Panel Return 2 ", temperature: "-25kg CO2 3 "});
-    console.log("yes",obj,"yes");
+    //console.log("yes",obj,"yes");
 
 }
 

@@ -18,8 +18,8 @@ export class MapUpdate extends React.Component {
     super(props);
 
     navigator.geolocation.getCurrentPosition(function(position) {
-    //console.log("Latitude is :", position.coords.latitude);
-    //console.log("Longitude is :", position.coords.longitude);
+    ////console.log("Latitude is :", position.coords.latitude);
+    ////console.log("Longitude is :", position.coords.longitude);
 
     lng = position.coords.longitude;
     lat = position.coords.latitude;
@@ -110,8 +110,8 @@ function resetVals() {
   lng = 0;
 
   navigator.geolocation.getCurrentPosition(function(position) {
-    //console.log("Latitude is :", position.coords.latitude);
-    //console.log("Longitude is :", position.coords.longitude);
+    ////console.log("Latitude is :", position.coords.latitude);
+    ////console.log("Longitude is :", position.coords.longitude);
 
     lng = position.coords.longitude;
     lat = position.coords.latitude;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export let currentFontSize;
 export let currentTheme;
 
-console.log (localStorage.getItem("darkMode"));
+//console.log (localStorage.getItem("darkMode"));
 
 if (localStorage.getItem("fontSize") == null){
     currentFontSize = "Standard font size"
@@ -39,14 +39,14 @@ export default function Settings(){
     function fontSizeIncrease(){
         setFontSize(fontSize + 2);
         localStorage.setItem("fontSize", 18);
-        console.log (localStorage.getItem("fontSize"));
+        //console.log (localStorage.getItem("fontSize"));
 
     }
 
     function fontSizeDecrease(){
         setFontSize(fontSize - 2);
         localStorage.setItem("fontSize", 11);
-        //console.log (localStorage.getItem("fontSize"));
+        ////console.log (localStorage.getItem("fontSize"));
 
     }
 
@@ -54,7 +54,7 @@ export default function Settings(){
     function fontSizeReset(){
         setFontSize(fontSize - 2);
         localStorage.setItem("fontSize", 16);
-        console.log (localStorage.getItem("fontSize"));
+        //console.log (localStorage.getItem("fontSize"));
 
     }
 

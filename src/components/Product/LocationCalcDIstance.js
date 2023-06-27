@@ -14,8 +14,8 @@ Geocode.setLocationType("ROOFTOP");
 Geocode.enableDebug();
 
 export function testf2 (station) {
-  console.log("test station is ", station);  
-  console.log("station is ", station);
+  //console.log("test station is ", station);  
+  //console.log("station is ", station);
   let t = findCoord (station);
   return new Promise(resolve => {
       setTimeout(function() {
@@ -25,18 +25,18 @@ export function testf2 (station) {
 };
 
 export var second_async_function = async function(station) {
-  console.log('async function called');
+  //console.log('async function called');
 
   const first_promise = await testf2(station);
-  console.log("The coordinates for ", station, " is as follows: ");
-  console.log("fp",first_promise);
+  //console.log("The coordinates for ", station, " is as follows: ");
+  //console.log("fp",first_promise);
 
   if (first_promise[0] != undefined) {
     stCoord += first_promise + ", "
   }
 
   
-  console.log("stCoord",stCoord);
+  //console.log("stCoord",stCoord);
 
 
 
@@ -46,7 +46,7 @@ export var second_async_function = async function(station) {
 }
 
 export function testf (station) {
-  console.log("test station is ", station);
+  //console.log("test station is ", station);
 };
 
 //async_function();

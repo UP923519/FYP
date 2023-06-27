@@ -31,7 +31,7 @@ Geocode.enableDebug();
 Geocode.fromLatLng(sessionStorage.getItem("Lat"), sessionStorage.getItem("Lng")).then(
   (response) => {
     const address = response.results[0].formatted_address;
-    //console.log(address);
+    ////console.log(address);
   },
   (error) => {
     //console.error(error);
@@ -45,8 +45,8 @@ Geocode.fromLatLng(sessionStorage.getItem("Lat"), sessionStorage.getItem("Lng"))
 
 export function convertLocation(){
   navigator.geolocation.getCurrentPosition(function(position) {
-    //console.log("Latitude is :", position.coords.latitude);
-    //console.log("Longitude is :", position.coords.longitude);
+    ////console.log("Latitude is :", position.coords.latitude);
+    ////console.log("Longitude is :", position.coords.longitude);
     Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
       (response) => {
         address = response.results[0].formatted_address;
@@ -67,8 +67,8 @@ export function convertLocation(){
           }
         }
 
-        console.log(city, state, country);
-        console.log("address is" + address);
+        //console.log(city, state, country);
+        //console.log("address is" + address);
       },
       (error) => {
         console.error(error);
@@ -87,7 +87,7 @@ export function convertLocation(){
 Geocode.fromAddress("Eiffel Tower").then(
   (response) => {
     const { lat, lng } = response.results[0].geometry.location;
-    //console.log(lat, lng);
+    ////console.log(lat, lng);
   },
   (error) => {
     //console.error(error);

@@ -51,7 +51,7 @@ function TransactionForm(props) {
     clearState();
     const db = getDatabase();
     var timee = (currDate+currTime).replaceAll('/','');
-    console.log("current user is:", theUser);
+    //console.log("current user is:", theUser);
     const user2 = localStorage.getItem('username');
 
     set(ref(db, user2+"/"+timee+"/"),

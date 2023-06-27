@@ -16,7 +16,7 @@ var passwFormat=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
 
 
 async function getPassWord(username){
-  console.log("username is ", username);
+  //console.log("username is ", username);
   const dbref = query(ref(db, username+"Login"));
   records = [];
   onValue(dbref, (snapshot)=>{
@@ -24,7 +24,7 @@ async function getPassWord(username){
         let keyName = childSnapshot.key;
         let data = childSnapshot.val();
         records.push({"date": keyName, "data":data})
-        console.log("datais", data)
+        //console.log("datais", data)
     });
   });
   return records;
@@ -35,7 +35,7 @@ export var first_function = function(username) {
   return new Promise(resolve => {
       setTimeout(function() {
       resolve(t);
-      console.log("Returned first promise");
+      //console.log("Returned first promise");
       }, 0);
   });
   };
@@ -44,7 +44,7 @@ async function verifyUser(username, hashedPassword) {
   first_promise = await first_function(username);
     try {
       let test = first_promise[0].data.Password;
-      console.log ("promise is", first_promise[0].data.Password);
+      //console.log ("promise is", first_promise[0].data.Password);
       alert("An error occurred, please try again.");
     } catch (error) {
       set(ref(db, username+"Login"+"/"+"Login"+"/"),
@@ -87,13 +87,13 @@ export default function Login({setToken}) {
         try {
           let testPW = records[0].data.Password;
           if (testPW == hashedPassword && savedPassword2 == hashedPassword && username != undefined && username != "" && password != "" && password != undefined){
-            console.log("passwords do match");
+            //console.log("passwords do match");
             setToken({token: 'User'});
           } else {
-            console.log ("passwords don't match");
-            console.log ("Entered is: ", hashedPassword);
-            console.log ("Saved is: ", testPW);
-            console.log ("Saved2 is: ", savedPassword2);
+            //console.log ("passwords don't match");
+            //console.log ("Entered is: ", hashedPassword);
+            //console.log ("Saved is: ", testPW);
+            //console.log ("Saved2 is: ", savedPassword2);
             if (password == "" || password == undefined){
               alert("Password field cannot be blank");
             } else if (!password.match(passwFormat)) {

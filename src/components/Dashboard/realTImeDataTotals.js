@@ -97,8 +97,8 @@ export class RealTimeDataTotals extends React.Component{
                 let date1Month = date1.slice(3,5);
                 let date1Year = date1.slice(6,10);
                 date1 = date1Year + "-" + date1Month + "-" + date1Day;
-                //console.log(date1, date2);
-                //console.log(records[i].data.Transaction.slice(0,2));
+                ////console.log(date1, date2);
+                ////console.log(records[i].data.Transaction.slice(0,2));
                 let transportMode = records[i].data.Transaction.slice(0,2);
                 
                 if (transportMode == "🚂"){
@@ -113,36 +113,36 @@ export class RealTimeDataTotals extends React.Component{
                                
                 if (date1 > date2){
                     recordsTotalMonth = recordsTotalMonth + Number(records[i].data.Amount);
-                    //console.log("newer than last month");
+                    ////console.log("newer than last month");
                 }
 
                 if (date1 >= dateStringW){
-                    //console.log("The following date", date1, "should be bigger than", dateStringW, "Last week");
+                    ////console.log("The following date", date1, "should be bigger than", dateStringW, "Last week");
                     recordsTotalWeek = recordsTotalWeek + Number(records[i].data.Amount);
-                    //console.log("newer than last week");
+                    ////console.log("newer than last week");
                 }
 
                 if (date1 >= dateStringY){
                     recordsTotalYear = recordsTotalYear + Number(records[i].data.Amount);
-                    //console.log("newer than last year");
+                    ////console.log("newer than last year");
                 }
 
                 if (date1 >= dateStringL2W && date1 < dateStringW){
-                    //console.log("The following date", date1, "should be less than", dateStringW, "and bigger than", dateStringL2W, "last 2 week");
+                    ////console.log("The following date", date1, "should be less than", dateStringW, "and bigger than", dateStringL2W, "last 2 week");
                     recordsTotalL2W = recordsTotalL2W + Number(records[i].data.Amount);
                 }
 
                 if (date1 >= dateStringL3W && date1 < dateStringL2W){
-                    //console.log("The following date", date1, "should be less than", dateStringL2W, "and bigger than", dateStringL3W, "last 3 week");
+                    ////console.log("The following date", date1, "should be less than", dateStringL2W, "and bigger than", dateStringL3W, "last 3 week");
                     recordsTotalL3W = recordsTotalL3W + Number(records[i].data.Amount);
                 }
 
                 if (date1 > date2 && date1 < dateStringL3W){
-                    //console.log("The following date", date1, "should be less than", dateStringL3W, "and bigger than", date2, "last 4 week");
+                    ////console.log("The following date", date1, "should be less than", dateStringL3W, "and bigger than", date2, "last 4 week");
                     recordsTotalL4W = recordsTotalL4W + Number(records[i].data.Amount);
                 }
-                //console.log (records[i].data.date.slice(0,-8));
-                //console.log(dateString);
+                ////console.log (records[i].data.date.slice(0,-8));
+                ////console.log(dateString);
             }
             
             let dataArr = ["Amount: ", [recordsTotal, recordsTotalMonth, recordsTotalWeek, recordsTotalWeek]];
@@ -181,11 +181,11 @@ export class RealTimeDataTotals extends React.Component{
                 tmodeTip = "Recommendations will appear once you have added a journey"
             }
 
-            //console.log("records iss", ((records)));
-            //console.log("graphArray iss", ((graphArray)));
+            ////console.log("records iss", ((records)));
+            ////console.log("graphArray iss", ((graphArray)));
 
-            //console.log("recordsTotal iss", (recordsTotal));
-            //console.log("recordsTotalMonth iss", (recordsTotalMonth));
+            ////console.log("recordsTotal iss", (recordsTotal));
+            ////console.log("recordsTotalMonth iss", (recordsTotalMonth));
         });
 
 
@@ -199,11 +199,11 @@ export class RealTimeDataTotals extends React.Component{
               
           });
           let tipNo = Math.floor(Math.random() * DBTips.length);
-          console.log(tipNo);
+          //console.log(tipNo);
           tmodeTip2 = DBTips[tipNo].data;
           this.setState({tmodeTip2: DBTips[tipNo].data});
 
-          console.log(DBTips[1].data);
+          //console.log(DBTips[1].data);
         });
     }
 

@@ -22,8 +22,8 @@ export class LocationCalc extends React.Component {
     super(props);
 
     navigator.geolocation.getCurrentPosition(function(position) {
-    //console.log("Latitude is :", position.coords.latitude);
-    //console.log("Longitude is :", position.coords.longitude);
+    ////console.log("Latitude is :", position.coords.latitude);
+    ////console.log("Longitude is :", position.coords.longitude);
 
     lng = position.coords.longitude;
     lat = position.coords.latitude;
@@ -63,8 +63,8 @@ export class LocationCalc extends React.Component {
   convertLocation2() {
 
     navigator.geolocation.getCurrentPosition(function(position) {
-      //console.log("Latitude is :", position.coords.latitude);
-      //console.log("Longitude is :", position.coords.longitude);
+      ////console.log("Latitude is :", position.coords.latitude);
+      ////console.log("Longitude is :", position.coords.longitude);
       Geocode.fromLatLng(position.coords.latitude, position.coords.longitude).then(
         (response) => {
           address = response.results[0].formatted_address;
@@ -84,8 +84,8 @@ export class LocationCalc extends React.Component {
               }
             }
           }
-          console.log(city, state, country);
-          console.log("address is" + address);
+          //console.log(city, state, country);
+          //console.log("address is" + address);
           //document.getElementById("demo").innerHTML = address;
         },
         (error) => {
@@ -101,7 +101,7 @@ export class LocationCalc extends React.Component {
 
   render(){
     var Location = this.state.address;
-    console.log("thisstateaddress is", this.state.address)
+    //console.log("thisstateaddress is", this.state.address)
 
     return(
       <div>

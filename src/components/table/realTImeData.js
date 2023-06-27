@@ -69,7 +69,7 @@ export class RealTimeData extends React.Component{
                 }
             }
 
-            //console.log(recordsSorted);
+            ////console.log(recordsSorted);
             records = recordsSorted;
             this.setState({tableData: records.reverse().slice(0,11)});
         });
@@ -85,12 +85,12 @@ export class RealTimeData extends React.Component{
         const db = StartFirebase();
         const user2 = localStorage.getItem('username');
         let deletionCounter = false;
-        //console.log(records.length, Number(this.state.value));
+        ////console.log(records.length, Number(this.state.value));
         for (let i=0; i<records.length; i++){
             if (i == Number(this.state.value)) {
                 const tasksRef = ref(db, user2+"/"+records[i].date);
                 remove(tasksRef).then(() => {
-                  console.log("location removed");
+                  //console.log("location removed");
                 });
                 alert("Row " + this.state.value + " has been deleted");
                 deletionCounter = true;

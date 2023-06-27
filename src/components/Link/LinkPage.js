@@ -34,7 +34,7 @@ export default class List extends React.Component {
 
       handleSubmit(event) {
         event.preventDefault();
-        //console.log(this.state.isGoing);
+        ////console.log(this.state.isGoing);
 
         //06/03/2023 15:29:00
         const currDate = new Date().toLocaleDateString();
@@ -55,11 +55,11 @@ export default class List extends React.Component {
 
         var exampleDate = "2022-10-27"
 
-        //console.log ("1 Quarter ago is", dateStringQ)
-        //console.log ("today is", dateStringTodayComp)
+        ////console.log ("1 Quarter ago is", dateStringQ)
+        ////console.log ("today is", dateStringTodayComp)
 
         if (exampleDate < dateStringTodayComp && exampleDate > dateStringQ){
-            //console.log ("this date is valid", exampleDate)
+            ////console.log ("this date is valid", exampleDate)
         }
 
 
@@ -81,9 +81,9 @@ export default class List extends React.Component {
                 records.push({"date": keyName, "data":data})             
             });
            
-            console.log(currYear);
+            //console.log(currYear);
             for (let i=0; i<records.length; i++){
-                console.log("RECORD", records[i]);
+                //console.log("RECORD", records[i]);
 
                 let date1 = records[i].data.date.slice(0,-8).slice(0,-1);
                 let date1Day = date1.slice(0,2);
@@ -93,26 +93,26 @@ export default class List extends React.Component {
 
 
                 if(this.state.isGoing == "Monthly" && records[i].data.Transaction.includes("💡") && records[i].data.date.includes(currMonthYear)){
-                    console.log("An entry with this month of the year exists, so do not add new");
+                    //console.log("An entry with this month of the year exists, so do not add new");
                     recordsTotalM = 1;
                 }
 
                 else if(this.state.isGoing == "Quarterly" && records[i].data.Transaction.includes("💡") && date1 > dateStringQ && date1 <= dateStringTodayComp){
-                    console.log("An entry with this quarter of the year exists, so do not add new");
+                    //console.log("An entry with this quarter of the year exists, so do not add new");
                     recordsTotalM = 1;
                 }
 
                 else if(this.state.isGoing == "Yearly" && records[i].data.Transaction.includes("💡") && records[i].data.date.includes(currYear)){
-                    console.log("An entry with this year exists, so do not add new");
+                    //console.log("An entry with this year exists, so do not add new");
                     recordsTotalM = 1;
                 }
 
                 if(this.state.override == true){
-                    //console.log("overriding plan and adding anyway");
+                    ////console.log("overriding plan and adding anyway");
                     recordsTotalM = 0;
                 }
                 if(this.state.isGoing == "Manual"){
-                    //console.log("overriding plan and adding anyway");
+                    ////console.log("overriding plan and adding anyway");
                     recordsTotalM = 0;
                 }
             }

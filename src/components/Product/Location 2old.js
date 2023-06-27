@@ -126,8 +126,6 @@ export var async_function = async function(date) {
 export function getLatBetween(pointA, pointB, mode, date){
   //testf2 (station);
   //second_function (station);
-
-  //console.log("pointA,B,mode,date", pointA, pointB, mode, date )
   destStation = pointB;
   second_async_function(pointA);
   second_async_function(pointB);
@@ -135,6 +133,7 @@ export function getLatBetween(pointA, pointB, mode, date){
   DistanceBetweenPoints(mode, pointA, date);
 
   //second_function = findCoord (originStation);
+
   
 }
 
@@ -163,7 +162,7 @@ export function DistanceBetweenPoints (mode, pointA, date){
       trSCoord = [stCoord];
       //console.log(trSCoord[0]);
       let trSCoordArray = trSCoord[0].split(",");
-      console.log(trSCoordArray);
+      //console.log(trSCoordArray);
 
       let coord1 = trSCoordArray[trSCoordArray.length-5];
       //console.log(coord1);

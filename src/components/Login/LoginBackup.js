@@ -14,7 +14,7 @@ let first_promise;
 
 
 async function getPassWord(username){
-  console.log("username is ", username);
+  //console.log("username is ", username);
   const dbref = query(ref(db, username+"Login"));
   records = [];
   onValue(dbref, (snapshot)=>{
@@ -22,7 +22,7 @@ async function getPassWord(username){
         let keyName = childSnapshot.key;
         let data = childSnapshot.val();
         records.push({"date": keyName, "data":data})
-        console.log("datais", data)
+        //console.log("datais", data)
    
     });
   });
@@ -36,14 +36,14 @@ export var first_function = function(username) {
   return new Promise(resolve => {
       setTimeout(function() {
       resolve(t);
-      console.log("Returned first promise");
+      //console.log("Returned first promise");
       }, 1000);
   });
   };
 
 
 async function loginUser(credentials) {
-  console.log(credentials, "test2");
+  //console.log(credentials, "test2");
     return fetch('http://localhost:8080/login', {
       method: 'POST',
       headers: {
@@ -58,7 +58,7 @@ async function verifyUser(username, hashedPassword) {
   first_promise = await first_function(username);
     try {
       let test = first_promise[0].data.Password;
-      console.log ("promise is", first_promise[0].data.Password);
+      //console.log ("promise is", first_promise[0].data.Password);
       alert("An error occurred, please try again.");
     } catch (error) {
       set(ref(db, username+"Login"+"/"+"Login"+"/"),
@@ -86,7 +86,7 @@ export default function Login({setToken}) {
       password
     });
     setToken(token);
-    console.log(token, "is token");*/
+    //console.log(token, "is token");*/
 
     //const dbref = ref(db, user2);
     const dbref = query(ref(db, username+"Login"));
@@ -109,7 +109,7 @@ export default function Login({setToken}) {
           let test = records[0].data.Password;
         } catch (error) {
           console.error(error);
-          console.log("account doesn't exist");
+          //console.log("account doesn't exist");
 
           onValue(dbref, (snapshot)=>{
             snapshot.forEach(childSnapshot => {
@@ -117,7 +117,7 @@ export default function Login({setToken}) {
                 let data = childSnapshot.val();
                 recordsCheck.push({"date": keyName, "data":data})   
             });
-            console.log("account doesn't exist check 2");
+            //console.log("account doesn't exist check 2");
 
           });
 
@@ -142,13 +142,13 @@ export default function Login({setToken}) {
         let savedPassword = records[0].data.Password;
 
         if (savedPassword == hashedPassword && savedPassword2 == hashedPassword && username != undefined && username != "" && password != "" && password != undefined){
-          console.log("passwords do match");
+          //console.log("passwords do match");
           setToken({token: 'User'});
         } else {
-          console.log ("passwords don't match");
-          console.log ("Entered is: ", hashedPassword);
-          console.log ("Saved is: ", savedPassword);
-          console.log ("Saved2 is: ", savedPassword2);
+          //console.log ("passwords don't match");
+          //console.log ("Entered is: ", hashedPassword);
+          //console.log ("Saved is: ", savedPassword);
+          //console.log ("Saved2 is: ", savedPassword2);
 
 
           if (password == "" || password == undefined){

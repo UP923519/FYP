@@ -17,7 +17,7 @@ export class GetMiles extends React.Component {
   handleChange(event) {
     event.preventDefault();
     this.setState({value: event.target.value, distanceMiles: distanceMiles});
-    console.log("distance");
+    //console.log("distance");
 
   }
 

@@ -10,7 +10,7 @@ async function getCallingPoints(url) {
     let callingPoints = [];
     let html = await fetch(CORS_ANYWHERE+url, {
         headers: {
-        'x-cors-api-key': 'temp_e2fa329b2aa072cc182a7fa758ddab3b',
+        'x-cors-api-key': 'temp_f28bad0fab1d23033f4d7a5bc28d526b',
         'mode': 'no-cors'
         }
       }
@@ -58,14 +58,14 @@ async function getCallingPoints(url) {
     */
 
 export async function getTrains(station, resultCount) {
-    console.log("indexJS getTrains running");
+    //console.log("indexJS getTrains running");
 
-    if (!station) return console.log("Realtime Trains Scraper Error: Station is Required.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
+    if (!station) return //console.log("Realtime Trains Scraper Error: Station is Required.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
     station = station.toLowerCase();
 
     if (!resultCount) resultCount = 10;
-    if (resultCount > 15) return console.log("Realtime Trains Scraper Error: You cannot Fetch more than 15 Results.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
-    if (resultCount < 1) return console.log("Realtime Trains Scraper Error: You must Fetch at least 1 Result.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
+    if (resultCount > 15) return //console.log("Realtime Trains Scraper Error: You cannot Fetch more than 15 Results.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
+    if (resultCount < 1) return //console.log("Realtime Trains Scraper Error: You must Fetch at least 1 Result.\nNeed Help? Join our Discord Server: https://discord.gg/P2g24jp");
 
     //retrieving the code for the station
     station = station.replace(/[^a-z0-9]/gi, "");
@@ -77,16 +77,27 @@ export async function getTrains(station, resultCount) {
     let data = []; //array of data to return
 
     //getting the html from Realtime Trains
-    const html = await fetch(CORS_ANYWHERE+`https://www.realtimetrains.co.uk/search/detailed/gb-nr:${stationCode}`, {
-        headers: {
-        'x-cors-api-key': 'temp_e2fa329b2aa072cc182a7fa758ddab3b',
-        'mode': 'no-cors'
-        }
-        }
-        )
-        .then(response => response.text());
+    let html;
+    try{
+        html = await fetch(CORS_ANYWHERE+`https://www.realtimetrains.co.uk/search/detailed/gb-nr:${stationCode}`, {
+            headers: {
+            'x-cors-api-key': 'temp_f28bad0fab1d23033f4d7a5bc28d526b',
+            'mode': 'no-cors'
+            }
+            }
+            )
+            .then(response => response.text());
+    }
+
+    catch{
+        console.log("Error response from API");
+        const $ = ""
+        html = "";
+    }
 
     const $ = cheerio.load(html);
+    
+
 
     //getting the detailed timetable
     let serviceList = $(".servicelist");

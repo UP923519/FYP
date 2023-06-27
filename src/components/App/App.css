@@ -443,10 +443,9 @@ a.active-animation:active{
 
   .titleClass{
     text-align: center;
-    display: inline;
     border-radius: 20px;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
 
   
   }
