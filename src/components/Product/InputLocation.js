@@ -139,9 +139,10 @@ export class InputLocation extends React.Component {
     } catch{
       JSON.stringify(this.logJSONData(this.formVal,timeOffset));
     }
+  }
 
-
-    setTimeout(() => {
+    runLast(){
+    //setTimeout(() => {
       //departuresList = stringDepartures2;
     
       //console.log("Returned first promise");
@@ -166,9 +167,10 @@ export class InputLocation extends React.Component {
 
 
       this.stringDepartures = myArray;
-        }, "1000");
+    //    }, "1000");
+    }
         
-  }
+  
 
   async logJSONData(stationName, timeOffset) {
 
@@ -201,6 +203,8 @@ export class InputLocation extends React.Component {
     serviceMessage = data.nrccMessages;
     let t = this.getTrainDepartures();
     departuresList = JSON.stringify(t);
+
+    this.runLast();
   }
 
   async logJSONData2(serviceID) {
@@ -233,6 +237,8 @@ export class InputLocation extends React.Component {
     //console.log ("LiveServices is", this.liveServices);
 
     liveServices0.push(liveService);
+
+    this.runAfterPopulated(this.stringDepartures);
 
 
 
@@ -279,8 +285,10 @@ export class InputLocation extends React.Component {
       stringDepartures.push(liveDeparture[i].std +" "+ liveDeparture[i].destination[0].locationName + " (from " + liveDeparture[i].origin[0].locationName +")  "+ liveDeparture[i].etd +"  p."+ liveDeparture[i].platform);
       this.logJSONData2(liveDeparture[i].serviceID);
     }
+  }
 
-    setTimeout(() => {
+    runAfterPopulated(stringDepartures){
+    //setTimeout(() => {
       console.log ("adding services", liveServices0)
 
       console.log(liveServices0.length);
@@ -329,12 +337,7 @@ export class InputLocation extends React.Component {
 
 
 
-        }, "1000");
-
-
-
-
-
+    //}, "1000");
   
     try{
       for (let i = 0; i < (serviceMessage.length); i++){
@@ -348,7 +351,8 @@ export class InputLocation extends React.Component {
     }
     //console.log("Data sent back says", stringDepartures, displayServiceMessage);  
     return({stringDepartures, displayServiceMessage})
-  } 
+  }
+  
 
   render() {
     const {showHideLD, showHideErr, trcStations, liveServices} = this.state;

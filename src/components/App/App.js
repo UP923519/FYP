@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Navbar from '../Navbar/Navbar.js';
 import Login, {} from '../Login/Login';
 import useToken from './useToken';
+import { CheckConnection } from '../CheckConnection/checkConnection.js'
+
 
 export const theUser = localStorage.getItem('username');
 
@@ -42,6 +44,8 @@ function App() {
 
   return (   
     <div className="wrapper" style = {{fontSize: Number(localStorage.getItem("fontSize")), backgroundColor: localStorage.getItem("darkMode"), color: colour}}>
+      <CheckConnection/>
+
       <h1 className = "titleClass" style = {{color: "#2d9ba1", backgroundColor:backGroundColour, borderRadius:"20px"}} >Carbon Tracker</h1>
       <div className = "topBanner1">
         <h4> Welcome, {localStorage.getItem('username')}
